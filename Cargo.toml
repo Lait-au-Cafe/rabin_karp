@@ -1,0 +1,8 @@
+[package]
+name = "rabin_karp"
+version = "0.1.0"
+authors = ["Lait-au-Cafe <anonymousman524@gmail.com>"]
+
+[dependencies]
+
+num="*"
