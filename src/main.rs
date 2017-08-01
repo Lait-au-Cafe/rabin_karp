@@ -55,7 +55,8 @@ fn rabin_karp(text: &[u8], patt_list: &[&[u8]]) -> Result<Vec<Vec<i32>>, String>
         result.push(Vec::new());
     }
 
-    
+
+    let pad = pow(BASE, m-1 as usize);
     // search
     for i in 0..n-m+1 {
         // compare
@@ -83,7 +84,7 @@ fn rabin_karp(text: &[u8], patt_list: &[&[u8]]) -> Result<Vec<Vec<i32>>, String>
         
         // calculate next hash O(n)
         debug_assert!(i+m < n);
-        ht = (ht - (text[i] as u64) * pow(BASE, m-1 as usize)) * BASE + (text[i+m] as u64);
+        ht = (ht - (text[i] as u64) * pad) * BASE + (text[i+m] as u64);
     }
 
     Ok(result)
